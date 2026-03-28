@@ -15,18 +15,13 @@ public final class DriverFactory {
         return DRIVER;
     }
 
-    public static void setDRIVER(WebDriver DRIVER) {
-        DriverFactory.DRIVER = DRIVER;
-    }
-
-
     public static void initDriver(BrowserType browserType) {
 
         WebDriver driver = switch (browserType) {
             case CHROME -> createChromeDriver();
             case FIREFOX -> createFirefoxDriver();
         };
-        setDRIVER(driver);
+        DRIVER = driver;
     }
 
     private static WebDriver createChromeDriver() {
